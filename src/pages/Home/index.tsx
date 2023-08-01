@@ -6,22 +6,20 @@ import { HomeContainer, PostsContainer } from './styles';
 import { GithubContext } from '../../contexts/GithubContexts';
 
 export function Home() {
-  const {
-    issues: { items },
-    fetchIssues,
-  } = useContext(GithubContext);
+  const { issues, fetchIssues } = useContext(GithubContext);
   useEffect(() => {
     fetchIssues();
   }, []);
+  console.log(issues);
+
   return (
     <HomeContainer>
       <Profile />
       <Search />
       <PostsContainer>
-        {items.map((item) => (
-          // Certifique-se de passar a propriedade "issue" para cada instância do componente "Posts"
+        {/* {items.map((item) => (
           <Posts key={item.id} issue={item} />
-        ))}
+        ))} */}
       </PostsContainer>
     </HomeContainer>
   );

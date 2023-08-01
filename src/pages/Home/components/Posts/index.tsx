@@ -5,7 +5,7 @@ interface PostsProps {
   issue: IssueType[];
 }
 
-export function Posts({ issue }: PostsProps) {
+export function Posts(issue: PostsProps) {
   console.log(issue);
 
   return (
