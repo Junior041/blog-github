@@ -32,6 +32,7 @@ export const PostTitle = styled.div`
 export const PostDescricao = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
+  height: 100%;
   font-size: 1rem;
   font-weight: 400;
   color: ${(props) => props.theme['base-text']};

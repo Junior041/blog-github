@@ -17,9 +17,9 @@ export function Home() {
       <Profile />
       <Search />
       <PostsContainer>
-        {/* {items.map((item) => (
+        {issues.map((item) => (
           <Posts key={item.id} issue={item} />
-        ))} */}
+        ))}
       </PostsContainer>
     </HomeContainer>
   );
