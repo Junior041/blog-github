@@ -12,4 +12,5 @@ export const PostsContainer = styled.div`
   grid-template-columns: repeat(2, 1fr);
   margin: 3rem 0rem;
   gap: 3rem;
+  width: 100%;
 `;

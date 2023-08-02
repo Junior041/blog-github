@@ -1,9 +1,12 @@
+import { GithubContext } from '../../../../contexts/GithubContexts';
 import { SearchContainer, SearchInput, SearchTitle } from './styles';
-import { ChangeEvent } from 'react';
-
-const handleChangeSearchInput = (event: ChangeEvent<HTMLInputElement>) => {};
+import { ChangeEvent, useContext } from 'react';
 
 export function Search() {
+  const { filterIssues } = useContext(GithubContext);
+  const handleChangeSearchInput = (event: ChangeEvent<HTMLInputElement>) => {
+    filterIssues(event.target.value);
+  };
   return (
     <SearchContainer>
       <SearchTitle>

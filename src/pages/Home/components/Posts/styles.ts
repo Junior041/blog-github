@@ -8,6 +8,7 @@ export const PostCard = styled.div`
   border-radius: 0.625rem;
   background-color: ${(props) => props.theme['base-post']};
   gap: 1.25rem;
+  min-width: 300px;
 `;
 
 export const PostTitle = styled.div`
