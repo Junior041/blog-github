@@ -10,20 +10,23 @@ import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import GithubSVG from '../../../../assets/Github.svg';
 import BuildingSVG from '../../../../assets/Building.svg';
 import UserGroupSVG from '../../../../assets/UserGroup.svg';
-import { memo } from 'react';
+import { memo, useContext, useEffect } from 'react';
+import { GithubContext } from '../../../../contexts/GithubContexts';
 
 function ProfileComponent() {
+  const { fetchUser, user } = useContext(GithubContext);
+
+  useEffect(() => {
+    fetchUser('Junior041');
+  }, []);
+
   return (
     <ProfileContainer>
-      <img width="148px" src="http://github.com/Junior041.png" alt="" />
+      <img width="148px" src={user?.avatar_url} alt="" />
       <DadosProfile>
         <NomeProfile>
-          <span>Ismael Antonio</span>
-          <a
-            href="http://github.com/Junior041"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <span>{user?.name}</span>
+          <a href={user?.html_url} target="_blank" rel="noreferrer">
             <span>GITHUB</span>
             <span>
               <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
@@ -31,24 +34,20 @@ function ProfileComponent() {
           </a>
         </NomeProfile>
         <ResumoProfile>
-          <span>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus,
-            qui quo porro, aut ipsa dicta sint eum perferendis sapiente
-            quisquam, quas at fuga. Ipsum, tempore nihil. Id a dicta aspernatur.
-          </span>
+          <span>{user?.bio}</span>
         </ResumoProfile>
         <LinksProfile>
           <div>
             <img src={GithubSVG} alt="" />
-            <span>Silva041</span>
+            <span>{user?.login}</span>
           </div>
           <div>
             <img src={BuildingSVG} alt="" />
-            <span>Rocketseat</span>
+            <span>{user?.company}</span>
           </div>
           <div>
             <img src={UserGroupSVG} alt="" />
-            <span>32 Seguidores</span>
+            <span>{user?.followers} Seguidores</span>
           </div>
         </LinksProfile>
       </DadosProfile>
