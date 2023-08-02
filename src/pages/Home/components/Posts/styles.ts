@@ -9,6 +9,7 @@ export const PostCard = styled.div`
   background-color: ${(props) => props.theme['base-post']};
   gap: 1.25rem;
   min-width: 300px;
+  min-height: 329px;
 `;
 
 export const PostTitle = styled.div`

@@ -10,8 +10,9 @@ import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import GithubSVG from '../../../../assets/Github.svg';
 import BuildingSVG from '../../../../assets/Building.svg';
 import UserGroupSVG from '../../../../assets/UserGroup.svg';
+import { memo } from 'react';
 
-export function Profile() {
+function ProfileComponent() {
   return (
     <ProfileContainer>
       <img width="148px" src="http://github.com/Junior041.png" alt="" />
@@ -54,3 +55,4 @@ export function Profile() {
     </ProfileContainer>
   );
 }
+export const Profile = memo(ProfileComponent);
