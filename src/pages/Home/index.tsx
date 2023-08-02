@@ -10,7 +10,6 @@ export function Home() {
   useEffect(() => {
     fetchIssues();
   }, []);
-  console.log(issues);
 
   return (
     <HomeContainer>

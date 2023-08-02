@@ -12,9 +12,11 @@ import { UserType } from '../@types/user';
 interface GithubContextType {
   issues: IssueType[];
   user: UserType | undefined;
+  oneIssue: IssueType | undefined;
   fetchIssues: () => Promise<void>;
   filterIssues: (search: string) => void;
   fetchUser: (search: string) => void;
+  fetchOneIssue: (issueId: number) => void;
 }
 
 interface GithubProviderProps {
@@ -28,6 +30,7 @@ export function GithubProvider({ children }: GithubProviderProps) {
   const [issues, setIssues] = useState<IssueType[]>([]);
   const [currentIssues, setCurrentIssues] = useState<IssueType[]>([]);
   const [user, setUser] = useState<UserType>();
+  const [oneIssue, setOneIssue] = useState<IssueType>();
 
   const fetchIssuesData = useCallback(async () => {
     const response = await API.get('repos/Junior041/dt-money/issues');
@@ -51,6 +54,13 @@ export function GithubProvider({ children }: GithubProviderProps) {
     setUser(response.data);
   };
 
+  const fetchOneIssue = async (issueId: number) => {
+    const response = await API.get(
+      `repos/Junior041/dt-money/issues/${issueId}`,
+    );
+    setOneIssue(response.data);
+  };
+
   useEffect(() => {
     filterIssues('');
   }, [filterIssues]);
@@ -60,9 +70,11 @@ export function GithubProvider({ children }: GithubProviderProps) {
       value={{
         user,
         issues: currentIssues,
+        oneIssue,
         fetchUser,
         fetchIssues: fetchIssuesData,
         filterIssues,
+        fetchOneIssue,
       }}
     >
       {children}

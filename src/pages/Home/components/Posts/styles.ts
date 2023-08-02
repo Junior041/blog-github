@@ -1,6 +1,7 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const PostCard = styled.div`
+export const PostCard = styled(NavLink)`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -10,6 +11,7 @@ export const PostCard = styled.div`
   gap: 1.25rem;
   min-width: 300px;
   min-height: 329px;
+  text-decoration: none;
 `;
 
 export const PostTitle = styled.div`
@@ -23,7 +25,7 @@ export const PostTitle = styled.div`
     font-weight: 700;
   }
 
-  > span {
+  > time {
     color: ${(props) => props.theme['base-span']};
     font-size: 0.875rem;
     font-weight: 400;
