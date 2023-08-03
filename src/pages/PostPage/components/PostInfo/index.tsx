@@ -22,7 +22,7 @@ interface PostComponentPros {
   issueId: number;
 }
 
-export function PostInfo({ issueId }: PostComponentPros) {
+export function PostInfo(issueId: PostComponentPros) {
   dayjs.extend(relativeTime);
   dayjs.locale(ptBR);
   const { fetchOneIssue, oneIssue } = useContext(GithubContext);

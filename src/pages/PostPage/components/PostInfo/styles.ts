@@ -58,11 +58,11 @@ export const PostLinks = styled.div`
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    svg {
+    > svg {
       color: ${(props) => props.theme['base-label']};
     }
     > span {
-      color: ${(props) => props.theme['base-subtitle']};
+      color: ${(props) => props.theme['base-span']};
       font-size: 1rem;
       font-weight: 400;
     }
