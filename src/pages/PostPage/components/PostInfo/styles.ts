@@ -16,7 +16,7 @@ export const PostInfoContainer = styled.div`
   justify-content: space-between;
   gap: 2rem;
 
-  div:first-child {
+  > div:first-child {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -31,6 +31,7 @@ export const PostInfoLinks = styled(NavLink)`
   line-height: 160%;
   text-transform: uppercase;
   text-decoration: none;
+  gap: 0.5rem;
 
   &:hover {
     text-decoration: underline;
@@ -39,4 +40,31 @@ export const PostInfoLinks = styled(NavLink)`
   display: flex;
   align-items: center;
   justify-content: space-between;
+`;
+
+export const PostTitle = styled.h1`
+  display: flex;
+  color: ${(props) => props.theme['base-title']};
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 130%; /* 1.95rem */
+`;
+
+export const PostLinks = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  > div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    svg {
+      color: ${(props) => props.theme['base-label']};
+    }
+    > span {
+      color: ${(props) => props.theme['base-subtitle']};
+      font-size: 1rem;
+      font-weight: 400;
+    }
+  }
 `;
